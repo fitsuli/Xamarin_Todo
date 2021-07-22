@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:models="clr-namespace:Todo.Models"
+             x:Class="Todo.Views.TodoItemPage"
+             x:DataType="models:TodoItem"
+             Title="Edit note">
+    <StackLayout Margin="20"
+                 Spacing="5"
+                 VerticalOptions="StartAndExpand">
+        <Label Text="Name" />
+        <Entry Text="{Binding Name}" />
+        <StackLayout Margin="0,10,0,10" Orientation="Horizontal" HorizontalOptions="Fill">
+            <Label Text="Done" HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
+            <Switch IsToggled="{Binding Done}" HorizontalOptions="EndAndExpand" VerticalOptions="Center" />
+        </StackLayout>
+        <Button Text="Save"
+                Clicked="OnSaveClicked"/>
+        <Button Text="Delete" 
+                Clicked="OnDeleteClicked" />
+        <Button Text="Cancel"
+                Clicked="OnCancelClicked" />
+    </StackLayout>
+</ContentPage>

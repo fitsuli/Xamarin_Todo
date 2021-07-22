@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Todo.Views.TodoListPage"
+             Title="Todo">
+    <AbsoluteLayout>
+        <ListView x:Name="listView"
+                      RowHeight="60"
+                      AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
+              ItemSelected="OnListItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout
+                                 Orientation="Horizontal"
+                                 HorizontalOptions="FillAndExpand">
+
+                            <Image Source="outline_task_alt_24.xml"
+                               IsVisible="{Binding Done}"
+                               Margin="20,0,0,0" />
+                            <Image Source="outline_radio_button_unchecked_24.xml"
+                               IsVisible="{Binding Undone}"
+                               Margin="20,0,0,0" />
+                            <Label Text="{Binding Name}"
+                               Margin="20,0,0,0"
+                               VerticalTextAlignment="Center"
+                               HorizontalOptions="FillAndExpand" />
+
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <ImageButton Source="outline_add_24.xml" 
+            BackgroundColor="#3872D4"
+                     CornerRadius="100"
+            AbsoluteLayout.LayoutFlags="PositionProportional"  
+            AbsoluteLayout.LayoutBounds=".95,.95,60,60" 
+            Clicked="OnItemAddClick" />
+    </AbsoluteLayout>
+</ContentPage>
